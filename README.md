@@ -1,0 +1,3 @@
+Discord bot to alert users of satellites passing overhead via direct messaging.
+
+...work in progress...
