@@ -1,13 +1,19 @@
 import sys
 import os
+import numpy as np
 
 pwd = os.getcwd()
 
-members = pwd + '\\members.list'
-satellites = pwd + '\\satellites.list'
+#using numpy arrary to build member list
+#   -name   -gps    -satellite list
+members = pwd + '\\members.npy'
+satellites = pwd + '\\satellite.list'
 
-def addMember(name):
-    with open(members, 'a') as f:
+#load members for accessability
+memberData = np.load(members)
+
+def addMember(name, locGPS, sateHolder):
+    with open(members, '') as f:
         f.write(name + '\n')
     return(name)
 
