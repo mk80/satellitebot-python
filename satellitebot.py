@@ -3,6 +3,7 @@ import os
 import sys
 import discord
 import re
+from skyfieldModule import getSatelliteVisable
 
 # get present working dir
 pwd = os.getcwd()
@@ -46,9 +47,14 @@ async def on_message(message):  # event that happens per any message.
   with open(extra_header_file, 'r') as h:
     extra_info = h.read()
 
+  # test visibility printout with ISS
+  satName = 'ISS'
+  satPrintout = getSatelliteVisable(satName)
+
   if (message.content.startswith("!test")):
     # sending as code snippet for proper formatting of text
     await message.author.send('```' + data + '```')
+    await message.author.send('```' + str(satPrintout) + '```')
     await message.author.send('```' + extra_info + '```')
 
   found_match = re.match(bot_name,message.content.lower())
