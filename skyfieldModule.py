@@ -26,7 +26,7 @@ def getSatelliteVisable(satelliteName):
     satellite = by_name[satelliteName]
 
     # setup output string
-    completeOutput = satelliteName + ' visibility at your location...\n'
+    completeOutput = satelliteName + ' visibility at your location in UTC...\n'
 
     t, events = satellite.find_events(home, t0, t1, altitude_degrees=10.0)
     for ti, event in zip(t, events):
