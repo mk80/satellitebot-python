@@ -32,6 +32,6 @@ def getSatelliteVisable(satelliteName):
     for ti, event in zip(t, events):
             name = ('rise above 10°', 'culminate', 'set below 10°')[event]
             #print(ti.utc_strftime('%Y %b %d %H:%M:%S'), name)
-            formatOutput = str(ti.utc_strftime('%Y %b %d %H:%M:%S')) + name + '\n'
+            formatOutput = str(ti.utc_strftime('%Y %b %d %H:%M:%S')) + ' ' + name + '\n'
             completeOutput += str(formatOutput)
     return(completeOutput)
