@@ -1,21 +1,19 @@
 import sys
 import os
-import numpy as np
+import sqlite3
 
 pwd = os.getcwd()
 
-#using numpy arrary to build member list
+# build member list
 #   -name   -gps    -satellite list
-members = pwd + '\\members.npy'
+db_conn = sqlite3.connect("members.db")
+db_cur = db_conn.cursor()
+
 satellites = pwd + '\\satellite.list'
 
-#load members for accessability
-memberData = np.load(members)
 
 def addMember(name, locGPS, sateHolder):
-    with open(members, '') as f:
-        f.write(name + '\n')
-    return(name)
+    pass
 
 def listSats():
     with open(satellites, 'r') as f:
