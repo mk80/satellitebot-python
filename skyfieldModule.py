@@ -14,6 +14,7 @@ def getSatelliteVisable(satelliteName):
     home = Topos('32.48 N', '117.22 W')
 
     today = datetime.today()
+    current_time = str(today.hour) + ":" + str(today.minute)
 
     # timeframe to search for passes
     plus_time = 2
@@ -26,7 +27,8 @@ def getSatelliteVisable(satelliteName):
     satellite = by_name[satelliteName]
 
     # setup output string
-    completeOutput = satelliteName + ' visibility at your location in UTC...\n'
+    completeOutput = 'current server time: ' + current_time + '\n'
+    completeOutput += satelliteName + ' visibility at your location in UTC...\n'
 
     t, events = satellite.find_events(home, t0, t1, altitude_degrees=10.0)
     for ti, event in zip(t, events):
